@@ -18,6 +18,6 @@ loop do
     File.write('pagenumber.txt', pagequery["statistics"]["articles"])
     query = client.query rctype: 'new', list: 'recentchanges', rcprop: 'title|ids|sizes|flags|user'
     editquery = query.data
-    Telegram.bot.send_message(chat_id: chat_id, text: "Nuova voce, si vola! Ora siamo a #{pagequery["statistics"]["articles"]} Creata da #{editquery["recentchanges"][0]["user"]} col titolo #{   puts editquery["recentchanges"][0]["title"]   }")
+    Telegram.bot.send_message(chat_id: chat_id, text: "Nuova voce, si vola! Ora siamo a #{pagequery["statistics"]["articles"]} Creata da #{editquery["recentchanges"][0]["user"]} col titolo #{editquery["recentchanges"][0]["title"]}")
   end
 end
