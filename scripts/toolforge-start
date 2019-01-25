@@ -1,0 +1,16 @@
+
+#!/usr/bin/env bash
+
+set -e
+
+# Make sure we're in the correct directory
+cd "$(dirname "$0")/.."
+
+# Add custom Ruby version to PATH
+export PATH="$HOME/ruby-2.4.1/bin:$PATH"
+
+# Install latest dependencies
+bundle install --path vendor -j 3
+
+# Start the rack server
+exec 'ruby dowiki.rb start'
